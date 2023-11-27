@@ -1,0 +1,20 @@
+version: "3.1"
+
+services:
+  jupyter:
+    container_name: tensorflow-gpu
+    build: .
+    ports:
+      - "8888:8888"
+    volumes:
+      - "./:/tf/notebooks"
+#      - "/your/file/path/:/tf/notebooks/data/"  # Only include this line if you have data stored somewhere else on your
+                                                 # machine that you want to access (like a different drive). This is
+                                                 # handy if you have a lot of data or a network share.
+    deploy:
+      resources:
+        reservations:
+          devices:
+          - driver: nvidia
+            count: all
+            capabilities: [gpu]

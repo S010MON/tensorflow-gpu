@@ -1,0 +1,8 @@
+# Add files here that you don't want to bring into the docker context
+Dockerfile
+docker-compose.yml
+.git
+.gitignore
+.ipynb_checkpoints/*
+.idea
+/src
