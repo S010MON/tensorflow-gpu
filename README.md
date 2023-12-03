@@ -5,12 +5,12 @@ Setting up a GPU for machine learning with tensorflow can be a maze.  This is a 
 steps with a template that can be used for a quick setup.  If you want a more detailed guide on what everything is doing
 check out my related blog post at leondebnath.com/no-nonsense-tensorflow-gpu.html
 
-    1.  [Introduction](https://github.com/S010MON/tensorflow-gpu#1-introduction)
-    2.  [NVIDIA Drivers (test step)](https://github.com/S010MON/tensorflow-gpu#2-nvidia-drivers-test-step)
-    3.  [Installing Docker](https://github.com/S010MON/tensorflow-gpu#3-install-docker)
-    4.  [NVIDIA container toolkit](https://github.com/S010MON/tensorflow-gpu#4-nvidia-container-toolkit)
-    5.  [Clone template](https://github.com/S010MON/tensorflow-gpu#5-clone-this-repository)
-    6.  [Run the code](https://github.com/S010MON/tensorflow-gpu#6-run-docker-compose)
+1.  [Introduction](https://github.com/S010MON/tensorflow-gpu#1-introduction)
+2.  [NVIDIA Drivers (test step)](https://github.com/S010MON/tensorflow-gpu#2-nvidia-drivers-test-step)
+3.  [Installing Docker](https://github.com/S010MON/tensorflow-gpu#3-install-docker)
+4.  [NVIDIA container toolkit](https://github.com/S010MON/tensorflow-gpu#4-nvidia-container-toolkit)
+5.  [Clone template](https://github.com/S010MON/tensorflow-gpu#5-clone-this-repository)
+6.  [Run the code](https://github.com/S010MON/tensorflow-gpu#6-run-docker-compose)
 
 Note: I've tried to link all the relevant documentation, so if Tensorflow, Docker or NVIDIA update their processes, you 
 know where to find them!
