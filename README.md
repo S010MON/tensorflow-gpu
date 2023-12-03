@@ -1,9 +1,20 @@
-# Tensorflow GPU setup
+# No Nonsense: Tensorflow GPU setup
 
 ## 1. Introduction
+Setting up a GPU for machine learning with tensorflow can be a maze.  This is a simple setup guide that links all the
+steps with a template that can be used for a quick setup. 
 
+    1.  [Introduction](https://github.com/S010MON/tensorflow-gpu#1-introduction)
+    2.  [NVIDIA Drivers (test step)](https://github.com/S010MON/tensorflow-gpu#2-nvidia-drivers)
+    3.  [Installing Docker](https://github.com/S010MON/tensorflow-gpu#)
+    4.  [NVIDIA container toolkit](https://github.com/S010MON/tensorflow-gpu#)
+    5.  [Clone template](https://github.com/S010MON/tensorflow-gpu#)
+    6.  [Run the code](https://github.com/S010MON/tensorflow-gpu#)
 
-## 2. Host Machine 
+Note: I've tried to link all the relevant documentation, so if Tensorflow, Docker or NVIDIA update their processes, you 
+know where to find them!
+
+## 2. NVIDIA Drivers (test step)
 This guide assumes you have a linux machine with a GPU with drivers installed.  Different distros have varying support 
 and drivers available, I have personally found Pop!_OS to work very well as they provide an ISO with NVIDIA support 
 inbuilt, for Ubuntu, the apt repository holds drivers for most modern GPUs. You can test your setup using the command:
@@ -21,7 +32,7 @@ instructions for your distro here: https://docs.docker.com/engine/install/ubuntu
 Note: although some distros allow you to install using 
 a repository (such as APT for debian based distros) **it is strongly recommended that you use the official method**
 
-### 3.1 Post installaion
+### 3.1 Post installation
 If you hate having to type `sudo` before every docker command, follow the 
 [post install steps](https://docs.docker.com/engine/install/linux-postinstall/) to add docker to your user group.
 
