@@ -5,11 +5,11 @@ Setting up a GPU for machine learning with tensorflow can be a maze.  This is a 
 steps with a template that can be used for a quick setup. 
 
     1.  [Introduction](https://github.com/S010MON/tensorflow-gpu#1-introduction)
-    2.  [NVIDIA Drivers (test step)](https://github.com/S010MON/tensorflow-gpu#2-nvidia-drivers)
-    3.  [Installing Docker](https://github.com/S010MON/tensorflow-gpu#)
-    4.  [NVIDIA container toolkit](https://github.com/S010MON/tensorflow-gpu#)
-    5.  [Clone template](https://github.com/S010MON/tensorflow-gpu#)
-    6.  [Run the code](https://github.com/S010MON/tensorflow-gpu#)
+    2.  [NVIDIA Drivers (test step)](https://github.com/S010MON/tensorflow-gpu#2-nvidia-drivers-test-step)
+    3.  [Installing Docker](https://github.com/S010MON/tensorflow-gpu#3-install-docker)
+    4.  [NVIDIA container toolkit](https://github.com/S010MON/tensorflow-gpu#4-nvidia-container-toolkit)
+    5.  [Clone template](https://github.com/S010MON/tensorflow-gpu#5-clone-this-repository)
+    6.  [Run the code](https://github.com/S010MON/tensorflow-gpu#6-run-docker-compose)
 
 Note: I've tried to link all the relevant documentation, so if Tensorflow, Docker or NVIDIA update their processes, you 
 know where to find them!
@@ -74,4 +74,40 @@ tensorflow-gpu  |      or http://127.0.0.1:8888/?token=4e10a373c039e1a178f9c688a
 ```
 
 ### 6.2 Python Scripts
-Sometimes it's more convenient to run python scripts
+Sometimes it's more convenient to run python scripts, this can be done by attaching to the container in the terminal 
+(you will need to keep the container above running and do this in a new terminal):
+
+Running `docker ps -a` will list all of your running containers:
+```bash
+CONTAINER ID   IMAGE                    COMMAND                  CREATED          STATUS                      PORTS                                       NAMES
+35f098e8e62f   tensorflow-gpu-jupyter   "bash -c 'source /et…"   14 seconds ago   Up 13 seconds               0.0.0.0:8888->8888/tcp, :::8888->8888/tcp   tensorflow-gpu
+```
+
+to execute commands in the container use the command:
+```bash
+docker exec -it [CONTAINER_NAME] bash
+```
+for example, the default name for this template is `tensorflow-gpu` so the command becomes:
+```bash
+docker exec -it  tensorflow-gpu bash
+```
+you should see this message when you attach:
+```bash
+________                               _______________
+___  __/__________________________________  ____/__  /________      __
+__  /  _  _ \_  __ \_  ___/  __ \_  ___/_  /_   __  /_  __ \_ | /| / /
+_  /   /  __/  / / /(__  )/ /_/ /  /   _  __/   _  / / /_/ /_ |/ |/ /
+/_/    \___//_/ /_//____/ \____//_/    /_/      /_/  \____/____/|__/
+
+
+WARNING: You are running this container as root, which can cause new files in
+mounted volumes to be created as the root user on your host machine.
+
+To avoid this, run the container by specifying your user's userid:
+
+$ docker run -u $(id -u):$(id -g) args...
+
+root@35f098e8e62f:/tf/notebooks# 
+```
+
+Now you're ready to train on the GPU
