@@ -18,13 +18,36 @@ know where to find them!
 ## 2. NVIDIA Drivers (test step)
 This guide assumes you have a linux machine with a GPU with drivers installed.  Different distros have varying support 
 and drivers available, I have personally found Pop!_OS to work very well as they provide an ISO with NVIDIA support 
-inbuilt, for Ubuntu, the apt repository holds drivers for most modern GPUs. You can test your setup using the command:
+inbuilt, for Ubuntu, the apt repository holds drivers for most modern GPUs.  When you have completed the installation,
+you can test the setup using the command
+```bash
+nvidia-smi
 ```
-sudo docker run --rm --runtime=nvidia --gpus all ubuntu nvidia-smi
+and should get a window output like this:
+```bash
++---------------------------------------------------------------------------------------+
+| NVIDIA-SMI 545.29.02              Driver Version: 545.29.02    CUDA Version: 12.3     |
+|-----------------------------------------+----------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id        Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |         Memory-Usage | GPU-Util  Compute M. |
+|                                         |                      |               MIG M. |
+|=========================================+======================+======================|
+|   0  NVIDIA GeForce RTX 3060        Off | 00000000:2B:00.0  On |                  N/A |
+|  0%   44C    P8              16W / 170W |    909MiB / 12288MiB |      0%      Default |
+|                                         |                      |                  N/A |
++-----------------------------------------+----------------------+----------------------+
+                                                                                         
++---------------------------------------------------------------------------------------+
+| Processes:                                                                            |
+|  GPU   GI   CI        PID   Type   Process name                            GPU Memory |
+|        ID   ID                                                             Usage      |
+|=======================================================================================|
+|    0   N/A  N/A      2986      G   /usr/lib/xorg/Xorg                          280MiB |
+|    0   N/A  N/A      3099      G   /usr/bin/gnome-shell                         56MiB |
+|    0   N/A  N/A      6074      G   firefox                                     558MiB |
+|    0   N/A  N/A    185656      G   ...ures=SpareRendererForSitePerProcess        2MiB |
++---------------------------------------------------------------------------------------+
 ```
->source: https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/latest/sample-workload.html
-
-If this runs on your host machine, then it is time to install docker and set up the docker container toolkit from NVIDIA.
 
 ## 3. Install Docker
 If you already have docker installed on your machine, skip to section 4. Otherwise, follow the official installation 
@@ -40,7 +63,14 @@ If you hate having to type `sudo` before every docker command, follow the
 
 ## 4. NVIDIA Container Toolkit
 The container toolkit allows the container to talk to the GPU, follow the instructions: 
-https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/install-guide.html provided by NVIDIA.
+https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/install-guide.html provided by NVIDIA. You can test 
+your setup using the command:
+```
+sudo docker run --rm --runtime=nvidia --gpus all ubuntu nvidia-smi
+```
+>source: https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/latest/sample-workload.html
+
+If this runs on your machine, then you are ready to try and run tensorflow!
 
 ## 5. Clone this repository
 ```bash
