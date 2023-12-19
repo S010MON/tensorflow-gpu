@@ -3,7 +3,7 @@
 ## 1. Introduction
 Setting up a GPU for machine learning with tensorflow can be a maze.  This is a simple setup guide that links all the
 steps with a template that can be used for a quick setup.  If you want a more detailed guide on what everything is doing
-check out my related blog post at leondebnath.com/no-nonsense-tensorflow-gpu.html
+check out my related blog post at https://leondebnath.com/no-nonsense-tensorflow-gpu.html
 
 1.  [Introduction](https://github.com/S010MON/tensorflow-gpu#1-introduction)
 2.  [NVIDIA Drivers (test step)](https://github.com/S010MON/tensorflow-gpu#2-nvidia-drivers-test-step)
